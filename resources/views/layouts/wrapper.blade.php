@@ -9,6 +9,8 @@
 
     <title>@yield('site_title')</title>
 
+    <meta name="description" content="A Powerful URL Shorteners Tool to cut long URLs make them a small trackable link">
+
     @yield('head_content')
 
     <link href="{{ url('/') }}/uploads/brand/{{ config('settings.favicon') ?? 'favicon.png' }}" rel="icon">
