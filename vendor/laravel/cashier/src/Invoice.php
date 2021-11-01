@@ -5,15 +5,18 @@ namespace Laravel\Cashier;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
+use JsonSerializable;
 use Laravel\Cashier\Exceptions\InvalidInvoice;
 use Stripe\Customer as StripeCustomer;
 use Stripe\Invoice as StripeInvoice;
 use Stripe\InvoiceLineItem as StripeInvoiceLineItem;
 use Symfony\Component\HttpFoundation\Response;
 
-class Invoice
+class Invoice implements Arrayable, Jsonable, JsonSerializable
 {
     /**
      * The Stripe model instance.
@@ -166,11 +169,13 @@ class Invoice
             return 0;
         }
 
-        if ($this->discountIsPercentage()) {
-            return (int) round($this->invoice->subtotal * ($this->percentOff() / 100));
+        $total = 0;
+
+        foreach ($this->invoice->total_discount_amounts as $discount) {
+            $total += $discount->amount;
         }
 
-        return $this->rawAmountOff();
+        return (int) $total;
     }
 
     /**
@@ -182,6 +187,18 @@ class Invoice
     {
         if (isset($this->invoice->discount)) {
             return $this->invoice->discount->coupon->id;
+        }
+    }
+
+    /**
+     * Get the coupon name applied to the invoice.
+     *
+     * @return string|null
+     */
+    public function couponName()
+    {
+        if (isset($this->invoice->discount)) {
+            return $this->invoice->discount->coupon->name ?: $this->invoice->discount->coupon->id;
         }
     }
 
@@ -388,6 +405,144 @@ class Invoice
     }
 
     /**
+     * Finalize the Stripe invoice.
+     *
+     * @param  array  $options
+     * @return $this
+     */
+    public function finalize(array $options = [])
+    {
+        $this->invoice = $this->invoice->finalizeInvoice($options, $this->owner->stripeOptions());
+
+        return $this;
+    }
+
+    /**
+     * Pay the Stripe invoice.
+     *
+     * @param  array  $options
+     * @return $this
+     */
+    public function pay(array $options = [])
+    {
+        $this->invoice = $this->invoice->pay($options, $this->owner->stripeOptions());
+
+        return $this;
+    }
+
+    /**
+     * Send the Stripe invoice to the customer.
+     *
+     * @param  array  $options
+     * @return $this
+     */
+    public function send(array $options = [])
+    {
+        $this->invoice = $this->invoice->sendInvoice($options, $this->owner->stripeOptions());
+
+        return $this;
+    }
+
+    /**
+     * Void the Stripe invoice.
+     *
+     * @param  array  $options
+     * @return $this
+     */
+    public function void(array $options = [])
+    {
+        $this->invoice = $this->invoice->voidInvoice($options, $this->owner->stripeOptions());
+
+        return $this;
+    }
+
+    /**
+     * Mark an invoice as uncollectible.
+     *
+     * @param  array  $options
+     * @return $this
+     */
+    public function markUncollectible(array $options = [])
+    {
+        $this->invoice = $this->invoice->markUncollectible($options, $this->owner->stripeOptions());
+
+        return $this;
+    }
+
+    /**
+     * Delete the Stripe invoice.
+     *
+     * @param  array  $options
+     * @return $this
+     */
+    public function delete(array $options = [])
+    {
+        $this->invoice = $this->invoice->delete($options, $this->owner->stripeOptions());
+
+        return $this;
+    }
+
+    /**
+     * Determine if the invoice is open.
+     *
+     * @return bool
+     */
+    public function isOpen()
+    {
+        return $this->invoice->status === StripeInvoice::STATUS_OPEN;
+    }
+
+    /**
+     * Determine if the invoice is a draft.
+     *
+     * @return bool
+     */
+    public function isDraft()
+    {
+        return $this->invoice->status === StripeInvoice::STATUS_DRAFT;
+    }
+
+    /**
+     * Determine if the invoice is paid.
+     *
+     * @return bool
+     */
+    public function isPaid()
+    {
+        return $this->invoice->status === StripeInvoice::STATUS_PAID;
+    }
+
+    /**
+     * Determine if the invoice is uncollectible.
+     *
+     * @return bool
+     */
+    public function isUncollectible()
+    {
+        return $this->invoice->status === StripeInvoice::STATUS_UNCOLLECTIBLE;
+    }
+
+    /**
+     * Determine if the invoice is void.
+     *
+     * @return bool
+     */
+    public function isVoid()
+    {
+        return $this->invoice->status === StripeInvoice::STATUS_VOID;
+    }
+
+    /**
+     * Determine if the invoice is deleted.
+     *
+     * @return bool
+     */
+    public function isDeleted()
+    {
+        return $this->invoice->status === StripeInvoice::STATUS_DELETED;
+    }
+
+    /**
      * Get the View instance for the invoice.
      *
      * @param  array  $data
@@ -457,19 +612,6 @@ class Invoice
     }
 
     /**
-     * Void the Stripe invoice.
-     *
-     * @param  array  $options
-     * @return $this
-     */
-    public function void(array $options = [])
-    {
-        $this->invoice = $this->invoice->voidInvoice($options, $this->owner->stripeOptions());
-
-        return $this;
-    }
-
-    /**
      * Get the Stripe model instance.
      *
      * @return \Illuminate\Database\Eloquent\Model
@@ -487,6 +629,37 @@ class Invoice
     public function asStripeInvoice()
     {
         return $this->invoice;
+    }
+
+    /**
+     * Get the instance as an array.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->asStripeInvoice()->toArray();
+    }
+
+    /**
+     * Convert the object to its JSON representation.
+     *
+     * @param  int  $options
+     * @return string
+     */
+    public function toJson($options = 0)
+    {
+        return json_encode($this->jsonSerialize(), $options);
+    }
+
+    /**
+     * Convert the object into something JSON serializable.
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 
     /**

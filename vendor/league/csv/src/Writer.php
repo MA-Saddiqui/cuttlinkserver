@@ -28,17 +28,19 @@ use const STREAM_FILTER_WRITE;
  */
 class Writer extends AbstractCsv
 {
+    protected const STREAM_FILTER_MODE = STREAM_FILTER_WRITE;
+
     /**
      * callable collection to format the record before insertion.
      *
-     * @var callable[]
+     * @var array<callable>
      */
     protected $formatters = [];
 
     /**
      * callable collection to validate the record before insertion.
      *
-     * @var callable[]
+     * @var array<callable>
      */
     protected $validators = [];
 
@@ -64,11 +66,6 @@ class Writer extends AbstractCsv
     protected $flush_threshold;
 
     /**
-     * {@inheritdoc}
-     */
-    protected $stream_filter_mode = STREAM_FILTER_WRITE;
-
-    /**
      * Regular expression used to detect if RFC4180 formatting is necessary.
      *
      * @var string
@@ -87,7 +84,6 @@ class Writer extends AbstractCsv
      */
     protected function resetProperties(): void
     {
-        parent::resetProperties();
         $characters = preg_quote($this->delimiter, '/').'|'.preg_quote($this->enclosure, '/');
         $this->rfc4180_regexp = '/[\s|'.$characters.']/x';
         $this->rfc4180_enclosure = $this->enclosure.$this->enclosure;
@@ -104,9 +100,8 @@ class Writer extends AbstractCsv
     /**
      * Get the flush threshold.
      *
-     * @return int|null
      */
-    public function getFlushThreshold()
+    public function getFlushThreshold(): ?int
     {
         return $this->flush_threshold;
     }
@@ -163,7 +158,11 @@ class Writer extends AbstractCsv
      */
     protected function addRecord(array $record)
     {
-        return $this->document->fputcsv($record, $this->delimiter, $this->enclosure, $this->escape);
+        if (PHP_VERSION_ID < 80100) {
+            return $this->document->fputcsv($record, $this->delimiter, $this->enclosure, $this->escape);
+        }
+
+        return $this->document->fputcsv($record, $this->delimiter, $this->enclosure, $this->escape, $this->newline);
     }
 
     /**
@@ -205,7 +204,12 @@ class Writer extends AbstractCsv
         }
         unset($field);
 
-        return $this->document->fwrite(implode($this->delimiter, $record)."\n");
+        $newline = $this->newline;
+        if (PHP_VERSION_ID < 80100) {
+            $newline = "\n";
+        }
+
+        return $this->document->fwrite(implode($this->delimiter, $record).$newline);
     }
 
     /**
@@ -241,7 +245,7 @@ class Writer extends AbstractCsv
     protected function consolidate(): int
     {
         $bytes = 0;
-        if ("\n" !== $this->newline) {
+        if (80100 > PHP_VERSION_ID && "\n" !== $this->newline) {
             $this->document->fseek(-1, SEEK_CUR);
             /** @var int $newlineBytes */
             $newlineBytes = $this->document->fwrite($this->newline, strlen($this->newline));
@@ -294,9 +298,9 @@ class Writer extends AbstractCsv
     /**
      * Set the flush threshold.
      *
+     * @param ?int $threshold
      *
-     * @param  ?int      $threshold
-     * @throws Exception if the threshold is a integer lesser than 1
+     * @throws InvalidArgument if the threshold is a integer lesser than 1
      */
     public function setFlushThreshold(?int $threshold): self
     {
@@ -305,7 +309,7 @@ class Writer extends AbstractCsv
         }
 
         if (null !== $threshold && 1 > $threshold) {
-            throw new InvalidArgument(__METHOD__.'() expects 1 Argument to be null or a valid integer greater or equal to 1');
+            throw InvalidArgument::dueToInvalidThreshold($threshold, __METHOD__);
         }
 
         $this->flush_threshold = $threshold;

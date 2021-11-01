@@ -9,8 +9,9 @@
 
     <title>@yield('site_title')</title>
 
-    <meta name="description" content="A Powerful URL Shorteners Tool to cut long URLs make them a small trackable link">
+    <meta name="description" content="A Powerful Short link generator for short URLs with custom domain names and a fully trackable links generator.">
     <meta name="google-site-verification" content="ErqzRZA3P4acE0fOzglRlWIO7rsi6SVLmfL7vLsxDm4" />
+    <meta name="description" content="Link shortner with the power of trackable pixels so you can track link audience with a detailed data based on audience demographic.Now you can generate your short urls with custom domain name with our free url shortner">
     @yield('head_content')
 
     <link href="{{ url('/') }}/uploads/brand/{{ config('settings.favicon') ?? 'favicon.png' }}" rel="icon">

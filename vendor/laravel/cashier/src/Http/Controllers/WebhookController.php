@@ -52,7 +52,7 @@ class WebhookController extends Controller
             return $response;
         }
 
-        return $this->missingMethod();
+        return $this->missingMethod($payload);
     }
 
     /**
@@ -160,6 +160,8 @@ class WebhookController extends Controller
                         $subscription->ends_at = $subscription->onTrial()
                             ? $subscription->trial_ends_at
                             : Carbon::createFromTimestamp($data['current_period_end']);
+                    } elseif (isset($data['cancel_at'])) {
+                        $subscription->ends_at = Carbon::createFromTimestamp($data['cancel_at']);
                     } else {
                         $subscription->ends_at = null;
                     }
@@ -281,7 +283,7 @@ class WebhookController extends Controller
     }
 
     /**
-     * Get the billable entity instance by Stripe ID.
+     * Get the customer instance by Stripe ID.
      *
      * @param  string|null  $stripeId
      * @return \Laravel\Cashier\Billable|null

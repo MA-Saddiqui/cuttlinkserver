@@ -37,6 +37,10 @@ class IpUtils
      */
     public static function checkIp($requestIp, $ips)
     {
+        if (null === $requestIp) {
+            return false;
+        }
+
         if (!\is_array($ips)) {
             $ips = [$ips];
         }
@@ -72,7 +76,7 @@ class IpUtils
             return self::$checkedIps[$cacheKey] = false;
         }
 
-        if (false !== strpos($ip, '/')) {
+        if (str_contains($ip, '/')) {
             [$address, $netmask] = explode('/', $ip, 2);
 
             if ('0' === $netmask) {
@@ -120,7 +124,7 @@ class IpUtils
             throw new \RuntimeException('Unable to check Ipv6. Check that PHP was not compiled with option "disable-ipv6".');
         }
 
-        if (false !== strpos($ip, '/')) {
+        if (str_contains($ip, '/')) {
             [$address, $netmask] = explode('/', $ip, 2);
 
             if ('0' === $netmask) {

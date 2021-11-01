@@ -9,6 +9,7 @@
     <style>
         body {
             background: #fff none;
+            font-family: DejaVu Sans, 'sans-serif';
             font-size: 12px;
         }
 
@@ -54,7 +55,7 @@
                 &nbsp;
             </td>
 
-            <!-- Organization Name / Image -->
+            <!-- Vendor Name / Image -->
             <td align="right">
                 <strong>{{ $header ?? $vendor }}</strong>
             </td>
@@ -64,7 +65,7 @@
                 Receipt
             </td>
 
-            <!-- Organization Name / Date -->
+            <!-- Customer Name / Invoice Date -->
             <td>
                 <br><br>
                 <strong>To:</strong> {{ $owner->stripeEmail() ?: $owner->name }}
@@ -73,7 +74,7 @@
             </td>
         </tr>
         <tr valign="top">
-            <!-- Organization Details -->
+            <!-- Vendor Details -->
             <td style="font-size:9px;">
                 {{ $vendor }}<br>
 
@@ -154,7 +155,7 @@
                     <!-- Display The Subscriptions -->
                     @foreach ($invoice->subscriptions() as $subscription)
                         <tr class="row">
-                            <td>Subscription ({{ $subscription->quantity }})</td>
+                            <td>{{ $subscription->description }}</td>
                             <td>
                                 {{ $subscription->startDateAsCarbon()->formatLocalized('%B %e, %Y') }} -
                                 {{ $subscription->endDateAsCarbon()->formatLocalized('%B %e, %Y') }}
@@ -193,9 +194,9 @@
                         <tr>
                             <td colspan="{{ $invoice->hasTax() ? 3 : 2 }}" style="text-align: right;">
                                 @if ($invoice->discountIsPercentage())
-                                    {{ $invoice->coupon() }} ({{ $invoice->percentOff() }}% Off)
+                                    {{ $invoice->couponName() }} ({{ $invoice->percentOff() }}% Off)
                                 @else
-                                    {{ $invoice->coupon() }} ({{ $invoice->amountOff() }} Off)
+                                    {{ $invoice->couponName() }} ({{ $invoice->amountOff() }} Off)
                                 @endif
                             </td>
 
