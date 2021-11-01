@@ -22,6 +22,7 @@
         "league/csv": "^9.6",
         "protonemedia/laravel-verify-new-email": "^1.2",
         "simplesoftwareio/simple-qrcode": "~2",
+        "spatie/laravel-sitemap": "5.7",
         "whichbrowser/parser": "^2.0"
     },
     "require-dev": {

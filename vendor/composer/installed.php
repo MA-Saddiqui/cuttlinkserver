@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '017926f8a71f6a7399c2922121e95643bd3b5a9e',
+    'reference' => 'a6cd1823c3ba393540de88afeb45423441ec03ee',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -428,6 +428,15 @@
         0 => 'v6.20.36',
       ),
     ),
+    'intervention/image' => 
+    array (
+      'pretty_version' => '2.7.0',
+      'version' => '2.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9a8cc99d30415ec0b3f7649e1647d03a55698545',
+    ),
     'jakub-onderka/php-console-color' => 
     array (
       'pretty_version' => 'v0.2',
@@ -478,7 +487,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '017926f8a71f6a7399c2922121e95643bd3b5a9e',
+      'reference' => 'a6cd1823c3ba393540de88afeb45423441ec03ee',
     ),
     'laravel/tinker' => 
     array (
@@ -515,6 +524,15 @@
       array (
       ),
       'reference' => '18634df356bfd4119fe3d6156bdb990c414c14ea',
+    ),
+    'league/glide' => 
+    array (
+      'pretty_version' => '2.0.x-dev',
+      'version' => '2.0.9999999.9999999-dev',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e84ef237030817ab6034b2c17173dd3352a971e1',
     ),
     'league/mime-type-detection' => 
     array (
@@ -591,6 +609,15 @@
       array (
       ),
       'reference' => 'f4655858a784988f880c1b8c7feabbf02dfdf045',
+    ),
+    'nicmart/tree' => 
+    array (
+      'pretty_version' => '0.3.1',
+      'version' => '0.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c55ba47c64a3cb7454c22e6d630729fc2aab23ff',
     ),
     'nikic/php-parser' => 
     array (
@@ -826,8 +853,8 @@
     array (
       'provided' => 
       array (
-        0 => '1.0|2.0',
-        1 => '1.0.0 || 2.0.0 || 3.0.0',
+        0 => '1.0.0 || 2.0.0 || 3.0.0',
+        1 => '1.0|2.0',
       ),
     ),
     'psr/simple-cache' => 
@@ -990,6 +1017,69 @@
       ),
       'reference' => '90b2282dd29be1e52565e9832dc23af41610ea07',
     ),
+    'spatie/browsershot' => 
+    array (
+      'pretty_version' => '3.52.0',
+      'version' => '3.52.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd7486fa1e9301364cf47650febd59c13a5a1735c',
+    ),
+    'spatie/crawler' => 
+    array (
+      'pretty_version' => '4.7.6',
+      'version' => '4.7.6.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fe6e428b8ceaec561b9819bb948242ad0cfd40bb',
+    ),
+    'spatie/image' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1ffb276dd6528c6b308d5feb1573299c24fd9613',
+    ),
+    'spatie/image-optimizer' => 
+    array (
+      'pretty_version' => '1.5.0',
+      'version' => '1.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1b3585c3da2cc8872141fce40fbd17e07e6655d1',
+    ),
+    'spatie/laravel-sitemap' => 
+    array (
+      'pretty_version' => '5.7.0',
+      'version' => '5.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b2ce1f09f222fa9b79284b8952f967356a3ae0af',
+    ),
+    'spatie/robots-txt' => 
+    array (
+      'pretty_version' => '1.0.10',
+      'version' => '1.0.10.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8802a2bee670b3c13cfd21ede0322f72b3efb711',
+    ),
+    'spatie/temporary-directory' => 
+    array (
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f517729b3793bca58f847c5fd383ec16f03ffec6',
+    ),
     'stripe/stripe-php' => 
     array (
       'pretty_version' => 'v7.100.0',
@@ -1043,6 +1133,15 @@
       array (
       ),
       'reference' => '5f38c8804a9e97d23e0c8d63341088cd8a22d627',
+    ),
+    'symfony/dom-crawler' => 
+    array (
+      'pretty_version' => 'v5.3.7',
+      'version' => '5.3.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c7eef3a60ccfdd8eafe07f81652e769ac9c7146c',
     ),
     'symfony/error-handler' => 
     array (
@@ -1273,6 +1372,15 @@
       array (
       ),
       'reference' => '34a41e998c2183e22995f158c581e7b5e755ab9e',
+    ),
+    'tightenco/collect' => 
+    array (
+      'pretty_version' => 'v7.26.1',
+      'version' => '7.26.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5e460929279ad806e59fc731e649e9b25fc8774a',
     ),
     'tijsverkoyen/css-to-inline-styles' => 
     array (
