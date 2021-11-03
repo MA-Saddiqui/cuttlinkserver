@@ -36,7 +36,7 @@ Route::prefix('v1')->middleware('auth:api', 'throttle:120')->group(function () {
         'index'
     ]])->middleware('api.guard');
 
-    Route::fallback(function () {
+    /* Route::fallback(function () {
         return response()->json(['message' => 'Resource not found.', 'status' => 404], 404);
-    });
+    }); */
 });

@@ -8,8 +8,8 @@
         <div class="container position-relative py-5 py-sm-6">
             <div class="row">
                 <div class="col-12 py-sm-5">
-                    <h1 class="display-4 font-weight-bold text-center">{{ __('Simple, powerful & recognizable links') }}</h1>
-                    <h2 class="text-muted font-weight-normal mt-4 font-size-xl text-center">{{ __('Brand, track, and share your short links, engage with your users on a different level.') }}</h2>
+                    <h1 class="display-4 font-weight-bold text-center">{{ __('Simple, powerful & recognizable Link Shortener') }}</h1>
+                    <h2 class="text-muted font-weight-normal mt-4 font-size-xl text-center">{{ __('Hallmark, track, and spread your short link, engage with your audience on a different level.') }}</h2>
 
                     <div class="row">
                         <div class="col-2 d-none d-lg-flex">
