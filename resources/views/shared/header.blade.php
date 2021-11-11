@@ -1,5 +1,5 @@
 @guest
-<div id="header" class="header sticky-top shadow bg-base-0 z-1025">
+<div id="header" class="header sticky-top shadow bg-base-0 z-1025" style="background-color: #f5f5f5">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light px-0 py-3">
             <a href="{{ route('home') }}" aria-label="{{ config('settings.title') }}" class="navbar-brand p-0">
