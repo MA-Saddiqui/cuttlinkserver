@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="flex-fill">
-    <div class="bg-base-0 position-relative">
+    <div class="bg-base-0 position-relative" style="background-image:url({{ url('/') }}/images/banner.jpg);background-size:contain" >
         <div class="container position-relative py-5 py-sm-6">
             <div class="row">
                 <div class="col-12 py-sm-5">
