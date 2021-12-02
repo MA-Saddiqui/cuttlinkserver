@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Domain;
+use App\Faqs;
 use App\Http\Requests\CreateLinkRequest;
 use App\Link;
 use App\Plan;
@@ -73,8 +74,11 @@ class HomeController extends Controller
         if (Domain::where([['user_id', '=', 0], ['id', '=', config('settings.short_domain')]])->exists()) {
             $defaultDomain = config('settings.short_domain');
         }
+        //faqs
 
-        return view('home.index', ['plans' => $plans, 'user' => $user, 'domains' => $domains, 'defaultDomain' => $defaultDomain]);
+        $faqs = Faqs::where('status', 1)->get();
+
+        return view('home.index', ['plans' => $plans,'faqs'=>$faqs, 'user' => $user, 'domains' => $domains, 'defaultDomain' => $defaultDomain]);
     }
 
     public function createLink(CreateLinkRequest $request)

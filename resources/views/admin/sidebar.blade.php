@@ -29,7 +29,8 @@
             'spaces' => ['space', 'Spaces', 'admin.spaces'],
             'domains' => ['domain', 'Domains', 'admin.domains'],
             'pixels' => ['pixel', 'Pixels', 'admin.pixels'],
-            'pages' => ['pages', 'Pages', 'admin.pages']
+            'pages' => ['pages', 'Pages', 'admin.pages'],
+            'FAQs' => ['faq','FAQs','admin.faqs']
         ];
     @endphp
 

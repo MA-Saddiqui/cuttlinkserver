@@ -1,6 +1,35 @@
 @section('site_title', formatTitle([config('settings.title'), e(config('settings.tagline'))]))
 
 @extends('layouts.app')
+@section('style')
+    <style>
+        .accordion-section .panel-default > .panel-heading {
+            border: 0;
+            background: #f4f4f4;
+            padding: 0;
+        }
+        .accordion-section .panel-default .panel-title a {
+            display: block;
+            font-style: italic;
+            font-size: 1.5rem;
+        }
+        .accordion-section .panel-default .panel-title a:after {
+            font-family: 'FontAwesome';
+            font-style: normal;
+            font-size: 3rem;
+            content: "\f106";
+            color: #1f7de2;
+            float: right;
+            margin-top: -12px;
+        }
+        .accordion-section .panel-default .panel-title a.collapsed:after {
+            content: "\f107";
+        }
+        .accordion-section .panel-default .panel-body {
+            font-size: 1.2rem;
+        }
+    </style>
+@endsection
 
 @section('content')
     <div class="flex-fill">
@@ -90,9 +119,9 @@
     <div class="bg-base-1" id="features">
         <div class="container py-5 py-md-7">
             <div class="text-center">
-                <h3 class="h2 mb-3 font-weight-bold text-center">{{ __('Features') }}</h3>
+                <h3 class="h2 mb-3 font-weight-bold text-center">{{ __('Key Features of our LinkShortener') }}</h3>
                 <div class="m-auto">
-                    <p class="text-muted font-weight-normal font-size-lg">{{ __('Measure traffic, know your audience, stay in control of your links.') }}</p>
+                    <p class="text-muted font-weight-normal font-size-lg">{{ __('Measure link traffic, get audience, keep control on your links.') }}</p>
                 </div>
             </div>
 
@@ -105,7 +134,7 @@
                                 @include('icons.stats', ['class' => 'fill-current width-6 height-6 text-cyan'])
                             </div>
                             <div class="d-block w-100"><h5 class="mt-1 mb-1 d-inline-block font-weight-bold">{{ __('Statistics') }}</h5></div>
-                            <div class="d-block w-100 text-muted">{{ __('Get to know your audience, analyze the performance of your links.') }}</div>
+                            <div class="d-block w-100 text-muted">{{ __('Measure your link performance and get a detailed status of your link audience.') }}</div>
                         </div>
                     </div>
                 </div>
@@ -118,7 +147,7 @@
                                 @include('icons.pixel', ['class' => 'fill-current width-6 height-6 text-blue'])
                             </div>
                             <div class="d-block w-100"><h5 class="mt-1 mb-1 d-inline-block font-weight-bold">{{ __('Retargeting') }}</h5></div>
-                            <div class="d-block w-100 text-muted">{{ __('Retarget your audience by adding tracking pixels to your links.') }}</div>
+                            <div class="d-block w-100 text-muted">{{ __('Reach back to your audience with our Pixel by assigning them on links.') }}</div>
                         </div>
                     </div>
                 </div>
@@ -131,7 +160,7 @@
                                 @include('icons.devices', ['class' => 'fill-current width-6 height-6 text-purple'])
                             </div>
                             <div class="d-block w-100"><h5 class="mt-1 mb-1 d-inline-block font-weight-bold">{{ __('Targeting') }}</h5></div>
-                            <div class="d-block w-100 text-muted">{{ __('Redirect your users based on the country, platform, or language.') }}</div>
+                            <div class="d-block w-100 text-muted">{{ __('Setup a targeted redirect for a link according to customer on country,city,platform etc.') }}</div>
                         </div>
                     </div>
                 </div>
@@ -144,7 +173,7 @@
                                 @include('icons.calendar', ['class' => 'fill-current width-6 height-6 text-magenta'])
                             </div>
                             <div class="d-block w-100"><h5 class="mt-1 mb-1 d-inline-block font-weight-bold">{{ __('Campaigns') }}</h5></div>
-                            <div class="d-block w-100 text-muted">{{ __('Run time or clicks limited marketing campaigns.') }}</div>
+                            <div class="d-block w-100 text-muted">{{ __('Run Campaigns for you shorten Links(Time base,click based).') }}</div>
                         </div>
                     </div>
                 </div>
@@ -157,7 +186,7 @@
                                 @include('icons.security', ['class' => 'fill-current width-6 height-6 text-pink'])
                             </div>
                             <div class="d-block w-100"><h5 class="mt-1 mb-1 d-inline-block font-weight-bold">{{ __('Privacy') }}</h5></div>
-                            <div class="d-block w-100 text-muted">{{ __('Secure your links from unwanted visitors with the password option.') }}</div>
+                            <div class="d-block w-100 text-muted">{{ __('Restrict unAuthorized access to link by securing with password.') }}</div>
                         </div>
                     </div>
                 </div>
@@ -169,8 +198,8 @@
                                 <div class="position-absolute bg-rose opacity-10 top-0 right-0 bottom-0 left-0 border-radius-35"></div>
                                 @include('icons.settings', ['class' => 'fill-current width-6 height-6 text-rose'])
                             </div>
-                            <div class="d-block w-100"><h5 class="mt-1 mb-1 d-inline-block font-weight-bold">{{ __('Customizability') }}</h5></div>
-                            <div class="d-block w-100 text-muted">{{ __('Customize your links with custom domains and aliases.') }}</div>
+                            <div class="d-block w-100"><h5 class="mt-1 mb-1 d-inline-block font-weight-bold">{{ __('Customization') }}</h5></div>
+                            <div class="d-block w-100 text-muted">{{ __('Fully Customized your links with your own Domain name.') }}</div>
                         </div>
                     </div>
                 </div>
@@ -182,9 +211,9 @@
         <div class="container py-5 py-md-7 position-relative z-1">
             <div class="row pb-5">
                 <div class="col-12 col-lg-6">
-                    <h3 class="h2 mb-3 font-weight-bold">{{ __('Empower your links') }}</h3>
+                    <h3 class="h2 mb-3 font-weight-bold">{{ __('Improve your links') }}</h3>
                     <div class="m-auto">
-                        <p class="text-muted font-weight-normal font-size-lg mb-0">{{ __('Users are aware of the links they\'re clicking, branded links will increase your brand recognition, inspire trust and increase your click-through rate.') }}</p>
+                        <p class="text-muted font-weight-normal font-size-lg mb-0">{{ __('Users may not know which link they are clicking to solve this problem we have a custom Domain and Alias option for you.') }}</p>
                     </div>
 
                     @php
@@ -193,7 +222,7 @@
                                 'icon' => 'domain',
                                 'title' => __('Domains'),
                                 'color' => 'primary',
-                                'description' => __('Brand your links with your own domains and increase your click-through rate with up to 35% more.')
+                                'description' => __('Make your short links with your own domains and increase your click-through rate with up to 45% more.')
                             ],
                             [
                                 'icon' => 'alias',
@@ -571,60 +600,90 @@
             </div>
         </div>
     </div>
+    {{-- Faqs section --}}
+    <section class="accordion-section clearfix mt-3 bg-base-0" aria-label="Frequently Asked question">
+        <div class="container position-relative py-5 py-sm-6">
+            <div class="text-center">
+                <h3 class="h2 mb-3 font-weight-bold text-center">{{ __('Frequently Asked Questions (FAQs)') }}</h3>
 
-    <div class="bg-base-0">
+            </div>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                @foreach ($faqs as $key=> $faq)
+                <div class="panel panel-default">
+                    <div class="panel-heading p-3 mb-3" role="tab" id="heading{{$key}}">
+                      <h3 class="h3 mb-3 font-weight-bold">
+                        <a class="collapsed text-muted" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$key}}" aria-expanded="true" aria-controls="collapse{{$key}}">
+                          {{$faq->Question}}
+                        </a>
+                      </h3>
+                    </div>
+                    <div id="collapse{{$key}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$key}}">
+                      <div class="panel-body px-3 mb-4">
+                        <p class="text-muted font-weight-normal font-size-lg">{{$faq->Answer}}</p>
+
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+
+            </div>
+
+        </div>
+      </section>
+    {{-- Faqs section end --}}
+    <div class="bg-base-1">
         <div class="container position-relative text-center py-5 py-md-7 d-flex flex-column z-1">
             <h3 class="h2 mb-3 font-weight-bold text-center">{{ __('Integrations') }}</h3>
             <div class="m-auto text-center">
-                <p class="text-muted font-weight-normal font-size-lg">{{ __('Easily integrates with your favorite retargeting platforms.') }}</p>
+                <p class="text-muted font-weight-normal font-size-lg">{{ __('Easily integrates with your favorite re-targeting platforms.') }}</p>
             </div>
 
             <div class="d-flex flex-wrap justify-content-center justify-content-lg-between mt-4 mx-n3">
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Ads') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Ads') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('google-ads')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Analytics') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Analytics') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('google-analytics')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Tag Manager') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Tag Manager') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('google-tag-manager')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Facebook') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Facebook') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('facebook')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Bing') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Bing') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('bing')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Twitter') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Twitter') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('twitter')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Pinterest') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Pinterest') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('pinterest')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('LinkedIn') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('LinkedIn') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('linkedin')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Quora') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Quora') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('quora')) }}.svg" class="height-8">
                 </div>
 
-                <div class="bg-base-1 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Adroll') }}">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Adroll') }}">
                     <img src="{{ asset('/images/icons/pixels/' . md5('adroll')) }}.svg" class="height-8">
                 </div>
             </div>
         </div>
     </div>
 
-    @if(config('settings.stripe'))
-        <div class="bg-base-1">
+    {{-- @if(config('settings.stripe'))
+        <div class="bg-base-0">
             <div class="container py-5 py-md-7 position-relative z-1">
                 <div class="text-center">
                     <h3 class="h2 mb-3 font-weight-bold text-center">{{ __('Plans') }}</h3>
@@ -641,7 +700,7 @@
             </div>
         </div>
     @else
-        <div class="bg-base-1">
+        <div class="bg-base-0">
             <div class="container position-relative text-center py-5 py-md-7 d-flex flex-column z-1">
                 <div class="flex-grow-1">
                     <div class="badge badge-pill badge-success mb-3 px-3 py-2">{{ __('Join us') }}</div>
@@ -656,6 +715,6 @@
                 <div><a href="{{ route('register') }}" class="btn btn-primary py-2">{{ __('Get started') }}</a></div>
             </div>
         </div>
-    @endif
+    @endif --}}
 </div>
 @endsection

@@ -220,6 +220,12 @@ Route::prefix('admin')->middleware('admin', 'license')->group(function () {
     Route::get('/pages/new', 'AdminController@pagesNew')->name('admin.pages.new');
     Route::get('/pages/edit/{id}', 'AdminController@pagesEdit')->name('admin.pages.edit');
 
+    //Faq Routs
+
+    Route::get('/faqs', 'AdminController@faqs')->name('admin.faqs');
+    Route::get('/faqs/new', 'AdminController@faqsNew')->name('admin.faqs.new');
+    Route::post('faqs/new', 'AdminController@faqsStore')->name('admin.faqs.store');
+
     Route::get('/plans', 'AdminController@plans')->name('admin.plans');
     Route::get('/plans/new', 'AdminController@plansNew')->middleware('payment')->name('admin.plans.new');
     Route::get('/plans/edit/{id}', 'AdminController@plansEdit')->name('admin.plans.edit');

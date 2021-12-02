@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cronjob;
 use App\Domain;
+use App\Faqs;
 use App\Http\Requests\CreateDomainRequest;
 use App\Http\Requests\CreateLanguageRequest;
 use App\Http\Requests\CreatePageRequest;
@@ -134,7 +135,7 @@ class AdminController extends Controller
         $search = $request->input('search');
         $sort = ($request->input('sort') == 'asc' ? 'asc' : 'desc');
 
-        $cronjobs = Cronjob::when($search, function($query) use($search) {
+        $cronjobs = Cronjob::when($search, function ($query) use ($search) {
             return $query->search($search);
         })
             ->orderBy('id', $sort)
@@ -156,9 +157,9 @@ class AdminController extends Controller
         $search = $request->input('search');
         $sort = ($request->input('sort') == 'asc' ? 'asc' : 'desc');
 
-        $languages = Language::when($search, function($query) use($search) {
-                return $query->search($search);
-            })
+        $languages = Language::when($search, function ($query) use ($search) {
+            return $query->search($search);
+        })
             ->orderBy('id', $sort)
             ->paginate(config('settings.paginate'))
             ->appends(['search' => $search, 'sort' => $sort]);
@@ -186,13 +187,12 @@ class AdminController extends Controller
         $by = $request->input('by');
 
         $users = User::withTrashed()
-        ->when(isset($role) && is_numeric($role), function($query) use ($role) {
+        ->when(isset($role) && is_numeric($role), function ($query) use ($role) {
             return $query->searchRole($role);
         })
-        ->when($search, function($query) use ($search, $by) {
-            if($by == 'email') {
+        ->when($search, function ($query) use ($search, $by) {
+            if ($by == 'email') {
                 return $query->searchEmail($search);
-
             }
             return $query->searchName($search);
         })
@@ -244,28 +244,28 @@ class AdminController extends Controller
             $sort = ['id', 'desc'];
         }
 
-        $links = Link::when($type, function($query) use ($type) {
-                if($type == 1) {
-                    return $query->searchActive();
-                } else {
-                    return $query->searchExpired();
-                }
-            })
-            ->when($search, function($query) use ($search, $by) {
-                if($by == 'url') {
+        $links = Link::when($type, function ($query) use ($type) {
+            if ($type == 1) {
+                return $query->searchActive();
+            } else {
+                return $query->searchExpired();
+            }
+        })
+            ->when($search, function ($query) use ($search, $by) {
+                if ($by == 'url') {
                     return $query->searchUrl($search);
                 } elseif ($by == 'alias') {
                     return $query->searchAlias($search);
                 }
                 return $query->searchTitle($search);
             })
-            ->when($userId, function($query) use($userId) {
+            ->when($userId, function ($query) use ($userId) {
                 return $query->userId($userId);
             })
-            ->when($spaceId, function($query) use($spaceId) {
+            ->when($spaceId, function ($query) use ($spaceId) {
                 return $query->spaceId($spaceId);
             })
-            ->when($domainId, function($query) use($domainId) {
+            ->when($domainId, function ($query) use ($domainId) {
                 return $query->domainId($domainId);
             })
             ->orderBy($sort[0], $sort[1])
@@ -298,7 +298,7 @@ class AdminController extends Controller
         return view('admin.content', ['view' => 'admin.links.list', 'links' => $links, 'filters' => $filters]);
     }
 
-    function linksEdit($id)
+    public function linksEdit($id)
     {
         $link = Link::where([['id', '=', $id]])->firstOrFail();
 
@@ -322,10 +322,10 @@ class AdminController extends Controller
         $search = $request->input('search');
         $sort = ($request->input('sort') == 'asc' ? 'asc' : 'desc');
 
-        $spaces = Space::when($search, function($query) use ($search) {
+        $spaces = Space::when($search, function ($query) use ($search) {
             return $query->searchName($search);
         })
-            ->when($userId, function($query) use($userId) {
+            ->when($userId, function ($query) use ($userId) {
                 return $query->userId($userId);
             })
             ->orderBy('id', $sort)
@@ -362,13 +362,13 @@ class AdminController extends Controller
         $sort = ($request->input('sort') == 'asc' ? 'asc' : 'desc');
         $global = $request->input('global');
 
-        $domains = Domain::when($search, function($query) use ($search) {
-                return $query->searchName($search);
-            })
-            ->when($userId, function($query) use($userId) {
+        $domains = Domain::when($search, function ($query) use ($search) {
+            return $query->searchName($search);
+        })
+            ->when($userId, function ($query) use ($userId) {
                 return $query->userId($userId);
             })
-            ->when($global, function($query) use ($global) {
+            ->when($global, function ($query) use ($global) {
                 return $query->searchGlobal(0);
             })
             ->orderBy('id', $sort)
@@ -410,12 +410,12 @@ class AdminController extends Controller
         $type = $request->input('type');
         $sort = ($request->input('sort') == 'asc' ? 'asc' : 'desc');
 
-        $pixels = Pixel::when($search, function($query) use ($search) {
-                return $query->searchName($search);
-            })->when($type, function($query) use ($type) {
-                return $query->searchType($type);
-            })
-            ->when($userId, function($query) use($userId) {
+        $pixels = Pixel::when($search, function ($query) use ($search) {
+            return $query->searchName($search);
+        })->when($type, function ($query) use ($type) {
+            return $query->searchType($type);
+        })
+            ->when($userId, function ($query) use ($userId) {
                 return $query->userId($userId);
             })
             ->orderBy('id', $sort)
@@ -450,9 +450,9 @@ class AdminController extends Controller
         $search = $request->input('search');
         $sort = ($request->input('sort') == 'asc' ? 'asc' : 'desc');
 
-        $pages = Page::when($search, function($query) use($search) {
-                return $query->search($search);
-            })
+        $pages = Page::when($search, function ($query) use ($search) {
+            return $query->search($search);
+        })
             ->orderBy('id', $sort)
             ->paginate(config('settings.paginate'))
             ->appends(['search' => $search, 'sort' => $sort]);
@@ -472,6 +472,44 @@ class AdminController extends Controller
         return view('admin.content', ['view' => 'admin.pages.edit', 'page' => $page]);
     }
 
+    //Faqs
+    public function faqs(Request $request)
+    {
+        $search = $request->input('search');
+        $sort = ($request->input('sort') == 'asc' ? 'asc' : 'desc');
+
+        $faqs = Faqs::when($search, function ($query) use ($search) {
+            return $query->search($search);
+        })
+            ->orderBy('id', $sort)
+            ->paginate(config('settings.paginate'))
+            ->appends(['search' => $search, 'sort' => $sort]);
+
+        return view('admin.content', ['view' => 'admin.faqs.index', 'faqs' => $faqs]);
+    }
+
+    public function faqsNew()
+    {
+        return view('admin.content', ['view' => 'admin.faqs.new']);
+    }
+
+    public function faqsStore(Request $request)
+    {
+        $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+
+        $faq = new Faqs();
+        $faq->Question = $request->question;
+        $faq->Answer = $request->answer;
+        $faq->status = $request->status??0;
+        $faq->order_number = 0;
+        $faq->save();
+
+        return back()->with('success', __('Settings saved.'));
+    }
+
     public function plans(Request $request)
     {
         $search = $request->input('search');
@@ -482,16 +520,16 @@ class AdminController extends Controller
         $stripe = config('settings.stripe');
 
         $plans = Plan::withTrashed()
-            ->when(!$stripe, function($query) {
+            ->when(!$stripe, function ($query) {
                 return $query->where([['amount_month', '=', 0], ['amount_year', '=', 0]]);
             })
-            ->when($search, function($query) use($search) {
+            ->when($search, function ($query) use ($search) {
                 return $query->search($search);
             })
-            ->when(isset($visibility) && is_numeric($visibility), function($query) use ($visibility) {
+            ->when(isset($visibility) && is_numeric($visibility), function ($query) use ($visibility) {
                 return $query->visibility((int)$visibility);
             })
-            ->when(isset($status) && is_numeric($status), function($query) use ($status) {
+            ->when(isset($status) && is_numeric($status), function ($query) use ($status) {
                 if ($status) {
                     $query->whereNotNull('deleted_at');
                 } else {
@@ -525,16 +563,16 @@ class AdminController extends Controller
         $plan = $request->input('plan');
         $sort = ($request->input('sort') == 'asc' ? 'asc' : 'desc');
 
-        $subscriptions = Subscription::with(['user' => function($query) {
-                return $query->withTrashed();
-            }])
-            ->when(isset($status) && !empty($status), function($query) use ($status) {
+        $subscriptions = Subscription::with(['user' => function ($query) {
+            return $query->withTrashed();
+        }])
+            ->when(isset($status) && !empty($status), function ($query) use ($status) {
                 return $query->status($status);
             })
-            ->when(isset($plan) && !empty($plan), function($query) use ($plan) {
+            ->when(isset($plan) && !empty($plan), function ($query) use ($plan) {
                 return $query->plan($plan);
             })
-            ->when($userId, function($query) use($userId) {
+            ->when($userId, function ($query) use ($userId) {
                 return $query->userId($userId);
             })
             ->orderBy('id', $sort)
@@ -572,7 +610,8 @@ class AdminController extends Controller
         return view('admin.content', ['view' => 'settings.payments.subscriptions.edit', 'admin' => true, 'subscription' => $subscription, 'plan' => $plan, 'user' => $user]);
     }
 
-    public function license() {
+    public function license()
+    {
         return view('admin.content', ['view' => 'admin.license.index']);
     }
 
@@ -701,7 +740,7 @@ class AdminController extends Controller
 
             foreach ($rows as $row) {
                 if ($request->has($row)) {
-                    if($request->hasFile($row)) {
+                    if ($request->hasFile($row)) {
                         $fileName = $request->file($row)->hashName();
 
                         // Check if the file exists
@@ -878,7 +917,6 @@ class AdminController extends Controller
     public function createLanguage(CreateLanguageRequest $request)
     {
         if ($request->validated()) {
-
             $file = $this->readLanguage($request);
             $this->uploadLanguage($request, $file);
 
@@ -1111,7 +1149,7 @@ class AdminController extends Controller
         // If the payments module is not enabled
         if (!config('settings.stripe')) {
             // Prevent updating any plans other than the default one
-            if($plan->amount_month > 0 || $plan->amount_year > 0) {
+            if ($plan->amount_month > 0 || $plan->amount_year > 0) {
                 abort(404);
             }
         }
@@ -1195,7 +1233,7 @@ class AdminController extends Controller
 
     /**
      * Create the User
-     * 
+     *
      * @param CreateUserRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
