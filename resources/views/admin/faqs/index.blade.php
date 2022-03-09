@@ -78,7 +78,7 @@
                         <div class="row align-items-center">
                             <div class="col text-truncate">
                                 <div class="text-truncate">
-                                    <a href="{{ route('admin.pages.edit', $faq->id) }}">{{ $faq->question }}</a>
+                                    <a href="{{ route('admin.pages.edit', $faq->id) }}">{{ $faq->Question }}</a>
                                 </div>
                             </div>
                             <div class="col-auto">

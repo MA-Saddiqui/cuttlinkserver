@@ -5,7 +5,10 @@
         @include('shared.header')
 
         <div class="d-flex flex-column flex-fill @auth content @endauth">
-            @yield('content')
+            <main>
+                @yield('content')
+            </main>
+
 
             @include('shared.footer')
         </div>

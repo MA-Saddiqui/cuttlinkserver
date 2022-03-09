@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+
         // If the user is logged-in, redirect to dashboard
         if (Auth::check()) {
             return redirect()->route('dashboard');

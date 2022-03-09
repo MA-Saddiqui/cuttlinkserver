@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-lg navbar-light px-0 py-3">
             <a href="{{ route('home') }}" aria-label="{{ config('settings.title') }}" class="navbar-brand p-0">
                 <div class="logo">
-                    <img src="{{ url('/') }}/uploads/brand/{{ config('settings.logo') }}">
+                    <img src="{{ url('/') }}/uploads/brand/{{ config('settings.logo') }}" alt="link shortener logo">
                 </div>
             </a>
             <button class="navbar-toggler border-0 p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

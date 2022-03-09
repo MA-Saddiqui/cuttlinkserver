@@ -10,8 +10,11 @@
     <title>@yield('site_title')</title>
 
 
-    <meta name="google-site-verification" content="ErqzRZA3P4acE0fOzglRlWIO7rsi6SVLmfL7vLsxDm4" />
-    <meta name="description" content="cuttlink.net is a Link shortener tool where you can convert long Links to short Links also can track link audience, run link specific campaigns">
+
+    <meta name="description" content="The best Link shortener for converting lengthy, complex URLs into short, easy to memorize links.Track your links. Use it to shorten links and above all it's free with a Link Management Platform & API.">
+
+    <meta name="keywords" content="url shortener, link management platform, bitly, tinyurl,custom domain link shortener, api, branded urls, branded domian, links shortener, tiny url, short url, short link, links shortening, url traffic stats, url tracking, free url shortener, custom url shortener, shortening url, shorten url, shorten links, url, link, url redirect, shorter link, customize url, customize link, url shortener no ads, url shortener without ads, click stats, cuttlink,cutturl, cutly">
+    <link rel="canonical" href="https://cuttlink.net/">
     @yield('head_content')
 
     <link href="{{ url('/') }}/uploads/brand/{{ config('settings.favicon') ?? 'favicon.png' }}" rel="icon">
@@ -20,23 +23,6 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     @yield('style')
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLDERBWBXH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-MLDERBWBXH');
-    </script>
-    <!-- Clarity tracking code for https://www.cuttlink.net/ -->
-    <script>
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "982jtkate9");
-    </script>
     <!-- Styles -->
     <link href="{{ asset('css/app'. (__('lang_dir') == 'rtl' ? '.rtl' : '') . (config('settings.dark_mode') == 1 ? '.dark' : '').'.css') }}" rel="stylesheet" id="app-css">
 

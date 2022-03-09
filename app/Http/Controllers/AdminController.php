@@ -501,8 +501,24 @@ class AdminController extends Controller
         ]);
 
         $faq = new Faqs();
-        $faq->Question = $request->question;
-        $faq->Answer = $request->answer;
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->status = $request->status??0;
+        $faq->order_number = 0;
+        $faq->save();
+
+        return back()->with('success', __('Settings saved.'));
+    }
+    public function faqsEdit(Request $request)
+    {
+        $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+
+        $faq = new Faqs();
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
         $faq->status = $request->status??0;
         $faq->order_number = 0;
         $faq->save();
