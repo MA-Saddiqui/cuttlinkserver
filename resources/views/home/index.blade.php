@@ -1,5 +1,9 @@
 @section('site_title', formatTitle([config('settings.title'), e(config('settings.tagline'))]))
 
+@section('head_content')
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+@endsection
 @extends('layouts.app')
 @section('style')
     <style>
