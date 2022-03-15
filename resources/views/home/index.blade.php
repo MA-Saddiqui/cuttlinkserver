@@ -32,7 +32,13 @@
         .accordion-section .panel-default .panel-body {
             font-size: 1.2rem;
         }
-
+        @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+            figure img {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 @endsection
 
