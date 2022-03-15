@@ -281,7 +281,7 @@
                                                         <div class="col d-flex text-truncate">
                                                             <div class="text-truncate">
                                                                 <div class="d-flex align-items-center">
-                                                                    <img src="https://icons.duckduckgo.com/ip3/apple.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}">
+                                                                    <img src="https://icons.duckduckgo.com/ip3/apple.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}"  alt="apple">
 
                                                                     <div class="text-truncate">
                                                                         <div class="text-primary text-truncate" dir="ltr">example.com/bqh6e</div>
@@ -310,7 +310,7 @@
                                                         <div class="col d-flex text-truncate">
                                                             <div class="text-truncate">
                                                                 <div class="d-flex align-items-center">
-                                                                    <img src="https://icons.duckduckgo.com/ip3/microsoft.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}">
+                                                                    <img src="https://icons.duckduckgo.com/ip3/microsoft.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}"  alt="microsoft">
 
                                                                     <div class="text-truncate">
                                                                         <div class="text-primary text-truncate" dir="ltr">example.com/qyd8s</div>
@@ -339,7 +339,7 @@
                                                         <div class="col d-flex text-truncate">
                                                             <div class="text-truncate">
                                                                 <div class="d-flex align-items-center">
-                                                                    <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}">
+                                                                    <img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}"  alt="youtube">
 
                                                                     <div class="text-truncate">
                                                                         <div class="text-primary text-truncate" dir="ltr">example.net/b6vxe</div>
@@ -368,7 +368,7 @@
                                                         <div class="col d-flex text-truncate">
                                                             <div class="text-truncate">
                                                                 <div class="d-flex align-items-center">
-                                                                    <img src="https://icons.duckduckgo.com/ip3/messenger.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}">
+                                                                    <img src="https://icons.duckduckgo.com/ip3/messenger.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}" alt="messenger">
 
                                                                     <div class="text-truncate">
                                                                         <div class="text-primary text-truncate" dir="ltr">example.org/e362o</div>
@@ -397,7 +397,7 @@
                                                         <div class="col d-flex text-truncate">
                                                             <div class="text-truncate">
                                                                 <div class="d-flex align-items-center">
-                                                                    <img src="https://icons.duckduckgo.com/ip3/yahoo.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}">
+                                                                    <img src="https://icons.duckduckgo.com/ip3/yahoo.com.ico" rel="noreferrer" class="width-4 height-4 {{ (__('lang_dir') == 'rtl' ? 'ml-3' : 'mr-3') }}"  alt="yahoo">
 
                                                                     <div class="text-truncate">
                                                                         <div class="text-primary text-truncate" dir="ltr">example.com/gmyux</div>
@@ -497,7 +497,7 @@
                                                     <div class="d-flex flex-column">
                                                         <div class="d-flex justify-content-between mb-2">
                                                             <div class="d-flex text-truncate align-items-center">
-                                                                <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}"><img src="{{ asset('images') }}/icons/countries/us.svg" class="width-4 height-4"></div>
+                                                                <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}"><img src="{{ asset('images') }}/icons/countries/us.svg" class="width-4 height-4"  alt="united state flag"></div>
                                                                 <div class="text-truncate">
                                                                     <span class="text-body">United States</span>
                                                                 </div>
@@ -518,7 +518,7 @@
                                                     <div class="d-flex flex-column">
                                                         <div class="d-flex justify-content-between mb-2">
                                                             <div class="d-flex text-truncate align-items-center">
-                                                                <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}"><img src="{{ asset('images') }}/icons/platforms/windows.svg" class="width-4 height-4"></div>
+                                                                <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}"><img src="{{ asset('images') }}/icons/platforms/windows.svg" class="width-4 height-4"  alt="window's logo"></div>
                                                                 <div class="text-truncate">
                                                                     Windows
                                                                 </div>
@@ -539,7 +539,7 @@
                                                     <div class="d-flex flex-column">
                                                         <div class="d-flex justify-content-between mb-2">
                                                             <div class="d-flex text-truncate align-items-center">
-                                                                <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}"><img src="{{ asset('images') }}/icons/browsers/chrome.svg" class="width-4 height-4"></div>
+                                                                <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}"><img src="{{ asset('images') }}/icons/browsers/chrome.svg" class="width-4 height-4"  alt="chrome logo"></div>
                                                                 <div class="text-truncate">
                                                                     Chrome
                                                                 </div>
@@ -561,7 +561,7 @@
                                                         <div class="d-flex justify-content-between mb-2">
                                                             <div class="d-flex text-truncate align-items-center">
                                                                 <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}">
-                                                                    <img src="https://icons.duckduckgo.com/ip3/www.youtube.com.ico" rel="noreferrer" class="width-4 height-4">
+                                                                    <img src="https://icons.duckduckgo.com/ip3/www.youtube.com.ico" rel="noreferrer" class="width-4 height-4"  alt="youtube icon">
                                                                 </div>
 
                                                                 <div class="d-flex text-truncate">
@@ -585,7 +585,7 @@
                                                     <div class="d-flex flex-column">
                                                         <div class="d-flex justify-content-between mb-2">
                                                             <div class="d-flex text-truncate align-items-center">
-                                                                <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}"><img src="{{ asset('images') }}/icons/devices/desktop.svg" class="width-4 height-4"></div>
+                                                                <div class="d-flex align-items-center {{ (__('lang_dir') == 'rtl' ? 'ml-2' : 'mr-2') }}"><img src="{{ asset('images') }}/icons/devices/desktop.svg" class="width-4 height-4"  alt="desktop icon"></div>
                                                                 <div class="text-truncate">
                                                                     Desktop
                                                                 </div>
@@ -655,43 +655,43 @@
 
             <div class="d-flex flex-wrap justify-content-center justify-content-lg-between mt-4 mx-n3">
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Ads') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('google-ads')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('google-ads')) }}.svg" class="height-8"  alt="googleads icon">
                 </div>
 
-                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Analytics') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('google-analytics')) }}.svg" class="height-8">
+                <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Analytics') }}"  alt="messenger">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('google-analytics')) }}.svg" class="height-8"  alt="analytics">
                 </div>
 
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Google Tag Manager') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('google-tag-manager')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('google-tag-manager')) }}.svg" class="height-8" alt="tag-manager.icon">
                 </div>
 
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Facebook') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('facebook')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('facebook')) }}.svg" class="height-8" alt="facebook">
                 </div>
 
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Bing') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('bing')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('bing')) }}.svg" class="height-8" alt="bing">
                 </div>
 
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Twitter') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('twitter')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('twitter')) }}.svg" class="height-8" alt="twitter">
                 </div>
 
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Pinterest') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('pinterest')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('pinterest')) }}.svg" class="height-8" alt="Pinterest">
                 </div>
 
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('LinkedIn') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('linkedin')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('linkedin')) }}.svg" class="height-8" alt="linkedin">
                 </div>
 
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Quora') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('quora')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('quora')) }}.svg" class="height-8" alt="quora">
                 </div>
 
                 <div class="bg-base-0 d-flex width-20 height-20 position-relative align-items-center justify-content-center flex-shrink-0 border-radius-35 mx-3 mt-3" data-enable="tooltip" title="{{ __('Adroll') }}">
-                    <img src="{{ asset('/images/icons/pixels/' . md5('adroll')) }}.svg" class="height-8">
+                    <img src="{{ asset('/images/icons/pixels/' . md5('adroll')) }}.svg" class="height-8" alt="adroll">
                 </div>
             </div>
         </div>
