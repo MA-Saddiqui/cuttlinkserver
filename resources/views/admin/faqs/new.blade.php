@@ -58,15 +58,13 @@
 </div>
 
 @push('js')
-<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+<script src="{{asset('ckeditor/ckeditor/ckeditor.js')}}"></script>
 <script>
-        ClassicEditor
-            .create( document.querySelector( '#i_content' ),{
+        CKEDITOR
+            .replace( document.querySelector( '#i_content' ),{
+                extraPlugins: 'forms',
                 filebrowserUploadUrl: "{{route('admin.upload', ['_token' => csrf_token() ])}}",
                 filebrowserUploadMethod: 'form'
-            } )
-            .catch( error => {
-                console.error( error );
             } );
 </script>
 @endpush
