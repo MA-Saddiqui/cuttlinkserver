@@ -62,7 +62,7 @@
 <script>
         CKEDITOR
             .replace( document.querySelector( '#i_content' ),{
-                extraPlugins: 'forms',
+                extraPlugins: 'forms,image2,imageresponsive',
                 filebrowserUploadUrl: "{{route('admin.upload', ['_token' => csrf_token() ])}}",
                 filebrowserUploadMethod: 'form'
             } );
