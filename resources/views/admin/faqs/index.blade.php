@@ -78,11 +78,11 @@
                         <div class="row align-items-center">
                             <div class="col text-truncate">
                                 <div class="text-truncate">
-                                    <a href="{{ route('admin.pages.edit', $faq->id) }}">{{ $faq->Question }}</a>
+                                    <a href="{{ route('admin.faqs.edit', $faq->id) }}">{{ $faq->question }}</a>
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('admin.pages.edit', $faq->id) }}" class="btn btn-outline-primary btn-sm">{{ __('Edit') }}</a>
+                                <a href="{{ route('admin.faqs.edit', $faq->id) }}" class="btn btn-outline-primary btn-sm">{{ __('Edit') }}</a>
                             </div>
                         </div>
                     </div>

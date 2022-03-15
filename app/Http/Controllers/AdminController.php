@@ -493,6 +493,8 @@ class AdminController extends Controller
         return view('admin.content', ['view' => 'admin.faqs.new']);
     }
 
+
+
     public function faqsStore(Request $request)
     {
         $request->validate([
@@ -507,23 +509,54 @@ class AdminController extends Controller
         $faq->order_number = 0;
         $faq->save();
 
-        return back()->with('success', __('Settings saved.'));
+        return back()->with('success', __('Faq saved.'));
     }
     public function faqsEdit(Request $request)
     {
-        $request->validate([
-            'question' => 'required',
-            'answer' => 'required',
-        ]);
+        $faq = Faqs::findOrFail($request->id);
 
-        $faq = new Faqs();
+        return view('admin.content', ['view' => 'admin.faqs.edit', 'faq' => $faq]);
+    }
+
+    public function faqsUpdate(Request $request)
+    {
+        $faq = Faqs::where('id',$request->id)->first();
         $faq->question = $request->question;
         $faq->answer = $request->answer;
         $faq->status = $request->status??0;
         $faq->order_number = 0;
         $faq->save();
 
-        return back()->with('success', __('Settings saved.'));
+        return back()->with('success', __('Faq Updated.'));
+    }
+
+    public function upload(Request $request)
+    {
+        if($request->hasFile('upload')) {
+            //get filename with extension
+            $filenamewithextension = $request->file('upload')->getClientOriginalName();
+
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension = $request->file('upload')->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore = $filename.'_'.time().'.'.$extension;
+
+            //Upload File
+            $request->file('upload')->storeAs('public/uploads', $filenametostore);
+
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('storage/uploads/'.$filenametostore);
+            $msg = 'Image successfully uploaded';
+            $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+
+            // Render HTML output
+            @header('Content-type: text/html; charset=utf-8');
+            echo $re;
+        }
     }
 
     public function plans(Request $request)

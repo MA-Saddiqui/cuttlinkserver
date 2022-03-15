@@ -2,7 +2,7 @@
 
 @include('shared.breadcrumbs', ['breadcrumbs' => [
     ['url' => route('admin.dashboard'), 'title' => __('Admin')],
-    ['url' => route('admin.pages'), 'title' => __('Pages')],
+    ['url' => route('admin.faqs'), 'title' => __('Faqs')],
     ['title' => __('New')],
 ]])
 
@@ -56,3 +56,17 @@
         </form>
     </div>
 </div>
+
+@push('js')
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+<script>
+        ClassicEditor
+            .create( document.querySelector( '#i_content' ),{
+                filebrowserUploadUrl: "{{route('admin.upload', ['_token' => csrf_token() ])}}",
+                filebrowserUploadMethod: 'form'
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+</script>
+@endpush

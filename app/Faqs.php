@@ -8,5 +8,5 @@ class Faqs extends Model
 {
     protected $table = 'faqs';
 
-    public $fillable = ['Question','Answer','status','order_number'];
+    public $fillable = ['question','answer','status','order_number'];
 }

@@ -610,25 +610,26 @@
     </section>
 
     {{-- Faqs section --}}
+
     <section class="accordion-section clearfix mt-3 bg-base-0" aria-label="Frequently Asked question">
         <div class="container position-relative py-5 py-sm-6">
             <div class="text-center">
-                <h3 class="h2 mb-3 font-weight-bold text-center">{{ __('Frequently Asked Questions (FAQs)') }}</h3>
+                <h1 class="h2 mb-3 font-weight-bold text-center">{{ __('Link Shortener (FAQs)') }}</h1>
 
             </div>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 @foreach ($faqs as $key=> $faq)
                 <div class="panel panel-default">
                     <div class="panel-heading p-3 mb-3" role="tab" id="heading{{$key}}">
-                      <h3 class="h3 mb-3 font-weight-bold">
+                      <h2 class="h2 mb-3 font-weight-bold">
                         <a class="collapsed text-muted" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$key}}" aria-expanded="true" aria-controls="collapse{{$key}}">
                           {{$faq->question}}
                         </a>
-                      </h3>
+                      </h2>
                     </div>
                     <div id="collapse{{$key}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$key}}">
                       <div class="panel-body px-3 mb-4">
-                        <p class="text-muted font-weight-normal font-size-lg">{!!$faq->answer!!}</p>
+                        {!!$faq->answer!!}
 
                       </div>
                     </div>
@@ -638,7 +639,7 @@
             </div>
 
         </div>
-      </section>
+    </section>
     {{-- Faqs section end --}}
     <div class="bg-base-1">
         <div class="container position-relative text-center py-5 py-md-7 d-flex flex-column z-1">

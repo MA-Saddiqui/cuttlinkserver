@@ -11,6 +11,7 @@
 
 
             @include('shared.footer')
+            @stack('js')
         </div>
     </body>
 @endsection

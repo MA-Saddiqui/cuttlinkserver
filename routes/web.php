@@ -225,6 +225,10 @@ Route::prefix('admin')->middleware('admin', 'license')->group(function () {
     Route::get('/faqs', 'AdminController@faqs')->name('admin.faqs');
     Route::get('/faqs/new', 'AdminController@faqsNew')->name('admin.faqs.new');
     Route::post('faqs/new', 'AdminController@faqsStore')->name('admin.faqs.store');
+    Route::get('faqs/edit/{id}', 'AdminController@faqsEdit')->name('admin.faqs.edit');
+    Route::post('faqs/update/{id}', 'AdminController@faqsUpdate')->name('admin.faqs.update');
+
+    Route::post('ckeditor/image_upload', 'AdminController@upload')->name('admin.upload');
 
     Route::get('/plans', 'AdminController@plans')->name('admin.plans');
     Route::get('/plans/new', 'AdminController@plansNew')->middleware('payment')->name('admin.plans.new');

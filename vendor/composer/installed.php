@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'a6cd1823c3ba393540de88afeb45423441ec03ee',
+    'reference' => 'fda3223d02a89739df21d1c32b53e388c3f1ac13',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -37,6 +37,15 @@
       array (
       ),
       'reference' => 'fcc88fa66895f8c1ff83f6145a5eff5fa2a0739a',
+    ),
+    'ckeditor/ckeditor' => 
+    array (
+      'pretty_version' => '4.17.2',
+      'version' => '4.17.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0a402ca86b1821418e90cef026910fc723a930a6',
     ),
     'composer/ca-bundle' => 
     array (
@@ -487,7 +496,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'a6cd1823c3ba393540de88afeb45423441ec03ee',
+      'reference' => 'fda3223d02a89739df21d1c32b53e388c3f1ac13',
     ),
     'laravel/tinker' => 
     array (
