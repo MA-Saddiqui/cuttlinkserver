@@ -110,7 +110,7 @@ class NoCaptcha
      */
     public function renderJs($lang = null, $callback = false, $onLoadClass = 'onloadCallBack')
     {
-        return '<script src="'.$this->getJsLink($lang, $callback, $onLoadClass).'" async defer></script>'."\n";
+        return '<script src="'.$this->getJsLink($lang, $callback, $onLoadClass).'" defer></script>'."\n";
     }
 
     /**

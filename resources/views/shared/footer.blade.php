@@ -12,13 +12,13 @@
                             <a href="{{ route('developers') }}" class="nav-link py-1">{{ __('Developers') }}</a>
                         </li>
 
-                        <li class="nav-item d-flex">
+                        {{-- <li class="nav-item d-flex">
                             <a href="{{ config('settings.legal_terms_url') }}" class="nav-link py-1">{{ __('Terms') }}</a>
                         </li>
 
                         <li class="nav-item d-flex">
                             <a href="{{ config('settings.legal_privacy_url') }}" class="nav-link py-1">{{ __('Privacy') }}</a>
-                        </li>
+                        </li> --}}
 
                         @foreach ($footerPages as $page)
                             <li class="nav-item d-flex">
