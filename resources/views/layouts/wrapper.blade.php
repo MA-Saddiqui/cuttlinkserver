@@ -25,9 +25,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app'. (__('lang_dir') == 'rtl' ? '.rtl' : '') . (config('settings.dark_mode') == 1 ? '.dark' : '').'.css') }}" rel="stylesheet" id="app-css">
 
-    @if(isset(parse_url(config('app.url'))['host']) && parse_url(config('app.url'))['host'] == request()->getHost())
+    {{-- @if(isset(parse_url(config('app.url'))['host']) && parse_url(config('app.url'))['host'] == request()->getHost()) --}}
         {!! config('settings.tracking_code') !!}
-    @endif
+    {{-- @endif --}}
 
     @if(config('settings.custom_css'))
         <style>
