@@ -53,7 +53,7 @@
                 <div class="container position-relative py-5 py-sm-6">
                     <div class="row">
                         <div class="col-12 py-sm-5">
-                            <h1 class="display-4 font-weight-bold text-center">{{ __('Simple, powerful & recognizable Link Shortener') }}</h1>
+                            <h1 class="display-4 font-weight-bold text-center">{{ __('Simple Link Shortener Tool, With powerful API & Dashboard ') }}</h1>
                             <h2 class="text-muted font-weight-normal mt-4 font-size-xl text-center">{{ __('Hallmark, track, and spread your short link, engage with your audience on a different level.') }}</h2>
 
                             <div class="row">
@@ -629,7 +629,7 @@
     <section class="accordion-section clearfix mt-3 bg-base-0" aria-label="Frequently Asked question">
         <div class="container position-relative py-5 py-sm-6">
             <div class="text-center">
-                <h1 class="h2 mb-3 font-weight-bold text-center">{{ __('Link Shortener (FAQs)') }}</h1>
+                <h2 class="h2 mb-3 font-weight-bold text-center">{{ __('Link Shortener (FAQs)') }}</h2>
 
             </div>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">

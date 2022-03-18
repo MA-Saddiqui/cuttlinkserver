@@ -11,10 +11,9 @@
 
 
 
-    <meta name="description" content="The best Link shortener for converting lengthy, complex URLs into short, easy to memorize links.Track your links. Use it to shorten links and above all it's free with a Link Management Platform & API.">
+    <meta name="description" content="The best Link shortener to short, track links. It's free with a Link Management Platform & API.">
 
-    <meta name="keywords" content="url shortener, link management platform, bitly, tinyurl,custom domain link shortener, api, branded urls, branded domian, links shortener, tiny url, short url, short link, links shortening, url traffic stats, url tracking, free url shortener, custom url shortener, shortening url, shorten url, shorten links, url, link, url redirect, shorter link, customize url, customize link, url shortener no ads, url shortener without ads, click stats, cuttlink,cutturl, cutly">
-    <link rel="canonical" href="https://wwww.cuttlink.net/">
+    <meta name="keywords" content="url shortener, link management platform, bitly, tinyurl,custom domain link shortener, api, branded urls, branded domain, links shortener, tiny url, short url, short link, links shortening, url traffic stats, url tracking, free url shortener, custom url shortener, shortening url, shorten url, shorten links, url, link, url redirect, shorter link, customize url, customize link, url shortener no ads,link shortener api, url shortener without ads, click stats, cuttlink,cutturl, cutly">
     @yield('head_content')
 
     <link href="{{ url('/') }}/uploads/brand/{{ config('settings.favicon') ?? 'favicon.png' }}" rel="icon">
